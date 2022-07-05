@@ -1,12 +1,9 @@
+const db = require('./config/functions');
 const inquirer = require('inquirer');
-const mysql = require('mysql2');
-const db = require('./config/functions')
-let employeesArr = [];
-let rolesArr = [];
 
 
 // Question for employers choice
-const employeeUpdate = ()=> {
+const employeeUpdate = () => {
     inquirer.prompt([
         {
             type: 'list', 
@@ -16,6 +13,8 @@ const employeeUpdate = ()=> {
                 'View Departments',
                 'View Roles',
                 'View All Employees',
+                'View Employees by Manager',
+                'View Employees by Department',
                 'Add a Department',
                 'Add a Role',
                 'Add an Employee',
@@ -31,7 +30,13 @@ const employeeUpdate = ()=> {
             case 'View Roles': viewRoles();
             break;
 
-            case 'View all Employees' : viewEmployees();
+            case 'View All Employees' : viewEmployees();
+            break;
+
+            case 'View Employees by Manager' : viewEmployeesByMgr();
+            break;
+
+            case 'View Employees by Department' : viewEmployeesByDept();
             break;
 
             case 'Add a Department': addDepartment();
@@ -62,6 +67,14 @@ function viewRoles() {
 function viewEmployees() {
     db.viewEmployees()
 }
+// view employees by manager function
+function viewEmployeesByMgr() {
+    db.viewEmployeesByMgr()
+}
+// view employees by department function
+function viewEmployeesByDept() {
+    db.viewEmployeesByDept()
+}
 // add a department function
 function addDepartment() {
     db.addDepartment()
@@ -74,12 +87,9 @@ function addRole() {
 function addEmployee() {
     db.addEmployee()
 }
-// function to push into empty array
-
 // update an employee's role function
 function updateRole() {
     db.updateRole()
 }
-
 
 employeeUpdate()
