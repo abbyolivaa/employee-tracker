@@ -19,7 +19,7 @@
 
 
   # Installation Instructions
-  To install this application, watch this [video](#video) or follow these commands in your terminal:
+  To install this application, watch this [video](https://drive.google.com/file/d/1bLVhslo5oQDdXUj_e7YWIudXdJ6dlQwk/view) or follow these commands in your terminal:
   *  "cd desktop"
   * "git clone [repository url/SSH]"
   * "cd [repo name]"
